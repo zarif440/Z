@@ -47,8 +47,6 @@
     .theme-toggle, .password-toggle { border: 0; background: transparent; color: var(--muted); cursor: pointer; }
     .theme-toggle { min-height: 42px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); font-size: .85rem; font-weight: 600; transition: border-color 160ms ease, transform 160ms ease; }
     .theme-toggle:hover { border-color: var(--accent); transform: translateY(-1px); }
-    .hero-art { overflow: hidden; margin-bottom: 18px; border: 1px solid var(--line); border-radius: 18px; background: var(--soft); box-shadow: var(--shadow); }
-    .hero-art img { display: block; width: 100%; height: 170px; object-fit: cover; }
     .card { overflow: hidden; padding: clamp(24px, 7vw, 38px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); transition: background-color 180ms ease, border-color 180ms ease; }
     .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; color: var(--accent); font-size: .76rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
     .eyebrow::before { width: 8px; height: 8px; border-radius: 50%; background: currentColor; content: ""; }
@@ -96,9 +94,6 @@
       <div class="brand" aria-label="Greenleaf"><span class="brand-mark" aria-hidden="true">G</span><span>Greenleaf</span></div>
       <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Use dark mode</button>
     </header>
-    <div class="hero-art" aria-label="Bird photo">
-      <img src="https://images.unsplash.com/photo-1504006833117-8886a355efbf?auto=format&fit=crop&w=1200&q=80" alt="Bird perched on a branch in nature">
-    </div>
     <section class="card" aria-labelledby="pageTitle">
       <p class="eyebrow">Welcome back</p><h1 id="pageTitle">Sign in</h1><p class="intro">Enter your details to continue.</p>
       <p class="demo-notice"><strong>Demo only:</strong> authentication is not connected. Do not enter a real password. This page does not submit or save credentials.</p>
