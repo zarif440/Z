@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101713">
+  <meta name="description" content="Your Greenleaf account home.">
+  <title>Home · Greenleaf</title>
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/dashboard" aria-label="Greenleaf home">
+        <span class="brand-mark" aria-hidden="true">G</span><span>Greenleaf</span>
+      </a>
+    </header>
+    <div class="hero-art" role="img" aria-label="Moonlit night sky"><span class="moon" aria-hidden="true"></span></div>
+    <section class="card dashboard-card" aria-labelledby="pageTitle">
+      <p class="eyebrow">Greenleaf</p>
+      <h1 id="pageTitle">Your home</h1>
+      <p class="intro">You’re signed in. Welcome back.</p>
+      <button class="primary-button" id="logoutButton" type="button">Sign out</button>
+      <p class="status" id="logoutStatus" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <script>
+    "use strict";
+    document.getElementById("logoutButton").addEventListener("click", async () => {
+      const button = document.getElementById("logoutButton");
+      const status = document.getElementById("logoutStatus");
+      button.disabled = true;
+      try {
+        const response = await fetch("/api/auth/logout", { method: "POST", credentials: "same-origin" });
+        if (!response.ok) throw new Error("Sign out failed");
+        window.location.replace("/");
+      } catch {
+        button.disabled = false;
+        status.textContent = "Unable to sign out right now. Please try again.";
+        status.dataset.kind = "error";
+      }
+    });
+  </script>
+</body>
+</html>
